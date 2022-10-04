@@ -15,14 +15,6 @@ async fn main() -> Result<(), ()>{
         });
     }
     println!("{:#?}", rdb_cli);
-
-    // for i in 0..10 {
-    //     // if i == 10 {
-    //         println!("hi main thread: {}", i);
-    //     // }
-    //     thread::sleep(Duration::from_secs(1));
-    // }
-    // thread_handle.join().unwrap();
     
     loop {
         let buf = rdb_cli.clone().blpop::<String, Vec<String>>("LIST_QUEUE".to_string(), 4);
